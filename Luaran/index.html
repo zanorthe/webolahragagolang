@@ -1,11 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
+  <head>  
     <title>Document</title>
   </head>
   <body>
-    <p>sicksicksick</p>
+<div id="header"></div> <!-- Placeholder for the header -->
+
+    <div class="container-fluid text-center container2 position-relative">
+      <div class="position-absolute custom-content">
+        <p class="fs-1 fw-bold text-nowrap">ACHIEVE YOUR IDEAL BODY AND HEALTH GOALS</p>
+        <p class="fs-5 ">Pilih tujuan kesehatan Anda dan Dapatkan panduan yang disesuaikan untuk membantu Anda mencapai target dengan langkah-langkah yang efektif dan mudah diikuti.</p><br>
+        <button type="button" class="btn btn-dark btn-lg btn-welcome" data-bs-toggle="modal" data-bs-target="#learnmore">Learn More</button>
+      </div>
+        
+        <!--Button Modal-->
+      <div class="modal fade" id="learnmore" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content bg-secondary-subtle">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">MASUKKAN DATA ANDA</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3 row">
+                  <div class="col">
+                    <input type="number" class="form-control forminputdata" id="inputumur" placeholder="Masukkan umur anda" min="1" max="120">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <div class="col">
+                    <input type="number" class="form-control forminputdata" id="inputtinggi" placeholder="Masukkan tinggi anda (CM)" min="1" max="300">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <div class="col">
+                    <input type="number" class="form-control forminputdata" id="inputberatbadan" placeholder="Masukkan berat badan anda (Kg)" min="1" max="300">
+                  </div>
+                </div>
+                <div class="mb-3 row">
+                  <div class="col">
+                    <select class="form-select" aria-label="Pilih jenis kelamin">
+                      <option selected hidden>Jenis kelamin</option>
+                      <option value="Laki-laki">Laki-laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary tombolclose" data-bs-dismiss="modal">Close</button>
+              <a href="inputkegiatan.html" class="btn btn-dark tombolcontinue">Continue</a>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!---->
+
+    </div>
+
+
+
+
+
+
+<div id="footer"></div> <!-- Placeholder for the footer -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzCiIq7lInZ4AiO1XkApV4K5WIIt9j4v0x2aVHtIaxV9" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        loadComponent("header", "header.html");
+        loadComponent("footer", "footer.html");
+    });
+
+    function loadComponent(elementId, fileName) {
+        fetch(fileName)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok " + response.statusText);
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById(elementId).innerHTML = data;
+            })
+            .catch(error => console.error("There was a problem with the fetch operation:", error));
+    }
+</script>
   </body>
 </html>

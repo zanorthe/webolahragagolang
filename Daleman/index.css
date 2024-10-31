@@ -1,0 +1,47 @@
+/*Fresh Css start here */
+body {
+    background-image: url('../Tambahan/bg-welcome.jpg') ;
+    background-size: cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+}
+
+/* index.css */
+.container2 {
+  height: 90vh; /* Full height */
+}
+.custom-content {
+  top: 40%; /* Adjust as needed */
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+.btn-welcome {
+    border-radius: 0%;
+}
+
+.modal-content {
+    border-radius: 0%;
+}
+
+.modal-header {
+    border-bottom: solid;
+}
+
+.modal-footer {
+    border-top: solid;
+}
+
+.tombolclose, .tombolcontinue {
+    border-radius: 0%;
+}
+
+.forminputdata {
+    border-radius: 0%;
+}
+
+
+
+
