@@ -1,12 +1,37 @@
 /*Fresh Css start here */
 body {
-    background-image: url('../Tambahan/bg-welcome.jpg') ;
-    background-size: cover ;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    height: 100vh;
+    background-image: url('../Tambahan/gym-darken.jpg');
+    background-size: cover; /* Gambar akan mengisi seluruh area */
+    background-position: center; /* Gambar diposisikan di tengah */
+    background-repeat: no-repeat; /* Gambar tidak diulang */
+    margin: 0; /* Menghapus margin default */
+    padding: 0; /* Menghapus padding default */
+    min-height: 100vh; /* Minimum tinggi 100vh untuk memastikan tidak ada scroll */
+    overflow: hidden; /* Menyembunyikan overflow jika ada */
+    position: relative;
 }
+
+body {
+    /* CSS lainnya */
+    transition: opacity 0.5s ease; /* Durasi transisi */
+    opacity: 1; /* Awalnya, opacity 1 (tidak transparan) */
+}
+
+body.fade-out {
+    opacity: 0; /* Saat fade-out, opacity menjadi 0 (transparan) */
+}
+
+body.fade-in {
+    opacity: 0; /* Saat halaman baru dimuat, opacity awalnya 0 */
+}
+
+/* Animasi fade-in saat halaman baru dimuat */
+body.fade-in-active {
+    opacity: 1; /* Ketika fade-in aktif, opacity menjadi 1 */
+    transition: opacity 0.5s ease; /* Durasi transisi yang sama */
+}
+
+
 
 /* index.css */
 .container2 {
@@ -16,31 +41,154 @@ body {
   top: 40%; /* Adjust as needed */
   left: 50%;
   transform: translate(-50%, -40%);
+
 }
 
+
+.textyourhealth {
+    text-shadow: 
+      2px 2px 0px black,  /* bayangan ke kanan bawah */
+     -2px 2px 0px black,  /* bayangan ke kiri bawah */
+      2px -2px 0px black, /* bayangan ke kanan atas */
+     -5px -5px 0px black; /* bayangan ke kiri atas */
+}
+
+.textachieve {
+    font-size: clamp(4rem, 5vw, 3rem);
+    color: white;
+    font-style: italic;
+    /* text-shadow: 
+    1px 1px 0px #ffc107, 
+    -1px 1px 0px #ffc107,  
+    1px -1px 0px #ffc107, 
+    -1px -1px 2px #ffc107;  */
+    
+    /* text-shadow: 
+    1px 1px 0px black,  
+    -1px 1px 0px black, 
+    1px -1px 0px black, 
+    -1px -1px 2px black;  */
+    
+    text-shadow: 
+    1px 1px 0px white,  
+    -1px 1px 0px white, 
+    1px -1px 0px white, 
+    -1px -1px 2px white; 
+
+}
+
+
+.textdeskripsi {
+
+}
+
+
+/*=======================================================Css Modal====================================================================== */
 .btn-welcome {
+    background-color: black !important; /* Menggunakan !important untuk memastikan warna latar belakang tetap hitam */
+    border: none; /* Menghapus border default */
+    transition: background-color 0.3s ease; /* Animasi transisi */
+    outline: none; /* Menghapus outline jika ada */
     border-radius: 0%;
+    padding: 12px 50px;
 }
 
-.modal-content {
-    border-radius: 0%;
+.btn-welcome:hover, 
+.btn-welcome:focus, 
+.btn-welcome:active {   
+    background-color: black !important; /* Tetap hitam saat dihover atau ditekan */
+    box-shadow: none; /* Menghapus efek shadow jika ada */
 }
 
-.modal-header {
-    border-bottom: solid;
+.btn-welcome:active {
+    background-color: rgb(49, 48, 48) !important; /* Pastikan warna tetap hitam saat tombol ditekan */
+
 }
 
-.modal-footer {
-    border-top: solid;
+/* Memperbesar ukuran modal */
+.modalnya {
+    max-width: 70% !important; /* Sesuaikan persentasenya sesuai kebutuhan */
 }
 
-.tombolclose, .tombolcontinue {
-    border-radius: 0%;
+/* Mengecilkan dan memusatkan konten di dalam modal */
+.modal-header, .modal-body, .modal-footer {
+    max-height: 80%;
+    max-width: 80%; /* Menyesuaikan lebar konten di dalam modal */
+    margin: 40px auto; /* Memusatkan konten di dalam modal */
 }
 
-.forminputdata {
-    border-radius: 0%;
+.modal-content, .tombolclose, .tombolcontinue {
+    border-radius: 0; 
 }
+
+.modal-header, .modal-footer {
+    border-bottom: none;
+    border-top: none;
+}
+
+.forminputdata, .forminputdata:focus {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: 1px solid #ccc; /* Hanya garis bawah yang terlihat */
+    outline: none; /* Menghilangkan outline saat input aktif */
+    box-shadow: none;
+}
+
+
+/* Menghilangkan tombol spinner pada input type number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Menghilangkan tombol di Chrome/Safari */
+    margin: 0; /* Menghapus margin */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Menghilangkan tombol di Firefox */
+}
+
+/* Pastikan seluruh modal, dialog, dan container gambar tidak memiliki border-radius */
+.modal-content, .modal-dialog, .modal .col-md-4 {
+    border-radius: 0 !important; /* Hilangkan semua border-radius */
+    overflow: hidden !important; /* Pastikan tidak ada elemen yang keluar dari container */
+}
+
+/* Adjust image size and alignment */
+.modal .col-md-4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 47%;
+    border-radius: 0% !important;
+}
+
+/* Style the form fields for a consistent width */
+.modal .forminputdata,
+.modal .form-select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style the modal buttons for consistent spacing */
+.modal-footer .btn {
+    width: 28%; /* Makes the buttons take up equal space */
+}
+
+/* Adjust the padding of the modal header and body */
+.modal-header, .modal-body, .modal-footer {
+    padding: 15px;
+}
+
+/* Make the modal wider */
+.modal-dialog {
+    max-width: 800px; /* Adjust this value as needed */
+    width: 90%; /* Optional: set to a percentage for responsive design */
+}
+/*====================================================================================================================================== */
+
+
 
 
 

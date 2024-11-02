@@ -1,0 +1,34 @@
+body {
+
+}
+
+body {
+    /* CSS lainnya */
+    transition: opacity 0.5s ease; /* Durasi transisi */
+    opacity: 1; /* Awalnya, opacity 1 (tidak transparan) */
+}
+
+body.fade-out {
+    opacity: 0; /* Saat fade-out, opacity menjadi 0 (transparan) */
+}
+
+body.fade-in {
+    opacity: 0; /* Saat halaman baru dimuat, opacity awalnya 0 */
+}
+
+/* Animasi fade-in saat halaman baru dimuat */
+body.fade-in-active {
+    opacity: 1; /* Ketika fade-in aktif, opacity menjadi 1 */
+    transition: opacity 0.5s ease; /* Durasi transisi yang sama */
+}
+
+
+
+
+.textyourhealth {
+    text-shadow: 
+      2px 2px 0px black,  /* bayangan ke kanan bawah */
+     -2px 2px 0px black,  /* bayangan ke kiri bawah */
+      2px -2px 0px black, /* bayangan ke kanan atas */
+     -5px -5px 0px black; /* bayangan ke kiri atas */
+}

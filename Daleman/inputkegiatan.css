@@ -1,0 +1,85 @@
+/*Fresh Css start here */
+body {
+    background-color: black;
+    margin: 0;
+    height: 100vh;
+    
+}
+
+body {
+    /* CSS lainnya */
+    transition: opacity 0.5s ease; /* Durasi transisi */
+    opacity: 1; /* Awalnya, opacity 1 (tidak transparan) */
+}
+
+body.fade-out {
+    opacity: 0; /* Saat fade-out, opacity menjadi 0 (transparan) */
+}
+
+body.fade-in {
+    opacity: 0; /* Saat halaman baru dimuat, opacity awalnya 0 */
+}
+
+/* Animasi fade-in saat halaman baru dimuat */
+body.fade-in-active {
+    opacity: 1; /* Ketika fade-in aktif, opacity menjadi 1 */
+    transition: opacity 0.5s ease; /* Durasi transisi yang sama */
+}
+
+
+
+
+
+.jumbotron {
+    background-image: url('../images/bg/bg-image-2-1-darken.jpg'); 
+    background-size: cover; /* Memastikan gambar menutupi seluruh jumbotron */
+    background-position: center; /* Mengatur posisi gambar di tengah */
+    height: 50vh; /* Tinggi jumbotron 30% dari viewport height */
+    width: 100%;
+}
+
+
+.textyourhealth {
+    text-shadow: 
+      2px 2px 0px black,  /* bayangan ke kanan bawah */
+     -2px 2px 0px black,  /* bayangan ke kiri bawah */
+      2px -2px 0px black, /* bayangan ke kanan atas */
+     -5px -5px 0px black; /* bayangan ke kiri atas */
+}
+
+.containerheader {
+    margin-top: 7rem;
+}
+
+
+.card1, .card1 img, .card2, .card2 img, .btndiet{
+    border-radius: 0% !important;
+    outline: none;
+    border: none;
+}
+
+.card2 img {
+    object-position: center 30%;
+}
+
+.card-img-top {
+    object-fit: cover;
+    width: 100%;
+    height: 250px; /* Adjust the height to your preference */
+}
+
+/* Custom larger horizontal gap */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 10rem; /* Adjust this value for a larger or smaller gap */
+}
+
+/* Reduce gap on smaller screens */
+@media (max-width: 576px) {
+    .card {
+        margin-left: 0.5rem; /* Smaller gap */
+        margin-right: 0.5rem; /* Smaller gap */
+    }
+}
