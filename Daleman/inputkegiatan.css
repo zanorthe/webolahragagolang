@@ -231,6 +231,10 @@ input[type="number"] {
     max-width: 800px; /* Adjust this value as needed */
     width: 90%; /* Optional: set to a percentage for responsive design */
 }
+
+.tombolcontinue.fall-in{
+  animation: fallInUp 1.5s ease forwards; /* Apply animasi ke elemen */
+}
 /*====================================================================================================================================== */
 
 
@@ -262,9 +266,4 @@ input[type="number"] {
         opacity: 1; /* Fully visible */
     }
 }
-
-/* Apply the sliding animation to the body or page container when active */
-/* body.transition-active {
-    animation: slideToBottom 1.3s ease forwards; /* Extend duration to 1.5 seconds for a smooth roll down */
-} */
 

@@ -48,6 +48,13 @@ body {
   align-items: center;
   flex-direction: column;
   padding: 0;
+  animation: dropDown 2s ease-out forwards; /* Apply animation to sidebar */
+    transition: transform 1.5s ease, opacity 1.5s ease; /* Ensure smooth transition */
+}
+
+/* Fall out effect when the sidebar is clicked */
+.sidebar.fall-out {
+  animation: fallOut 1.5s ease forwards; /* Trigger fall-out animation */
 }
 
 .headingsidebar {
@@ -62,6 +69,8 @@ body {
   font-weight: bold;
     margin: 0; /* Remove any extra margin */
   padding: 0; /* Remove any extra padding */
+  text-decoration: none; /* Remove underline */
+  animation: dropDown 3s ease-out forwards; /* Apply animation to sidebar */
 }
 
 .content {
@@ -69,11 +78,20 @@ body {
     padding: 0;
 }
 
+/* Tambahkan animasi 'fall-out' untuk elemen konten */
+.content.fall-out {
+  animation: fallOut 1.5s ease forwards; /* Trigger 'fall-out' animation */
+}
+
+
+
+
 .headercontent1 h1{
     font-weight: bold;
     margin-top: 2rem;
     font-size: 3rem;
     margin-bottom: 100vh;
+    animation: dropDown 1.5s ease-out forwards; /* Apply animation to sidebar */
 }
 
 .headercontent2, .headercontent3 {
@@ -108,17 +126,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 2rem; /* Adjust as needed */
+    padding-top: 3rem; /* Adjust as needed */
     margin-bottom: 0 !important;
 }
 
-.headercontent4 p {
-    font-size: 1.3rem;
-    text-align: center;
-    margin: 0; /* Remove any default margin */
-    padding-left: 10rem; /* Remove any padding if needed */
-    padding-right: 10rem; /* Remove any padding if needed */
-}
 
 .carousel-makanan {
     margin-right: 8.3vw;
@@ -126,6 +137,30 @@ body {
 .carousel-minuman {
     margin-left: 8.3vw;
 }
+
+.carousel-latihan {
+  margin-right: 2rem;
+  margin-left: 2rem;
+    height: 80vh;
+  overflow: hidden;
+}
+
+.carousel-latihan-caption1{
+  margin-bottom: 10rem;
+}
+
+.carousel-latihan-caption2{
+  margin-bottom: 6rem;
+}
+
+.carousel-latihan-caption3{
+  margin-bottom: 10rem;
+}
+
+.carousel-latihan-caption4{
+  margin-bottom: 6rem;
+}
+
 
 
 .section {
@@ -141,3 +176,30 @@ body {
    align-items: flex-start; /* Align items to the top */ 
    justify-content: center;
 }
+
+
+
+/* Keyframes for drop down animation */
+@keyframes dropDown {
+  0% {
+    transform: translateY(-100vh); /* Start slightly above the viewport */
+    opacity: 0; /* Start fully transparent */
+  }
+  100% {
+    transform: translateY(0); /* Original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Keyframes for fall down animation */
+@keyframes fallOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh); /* Move down out of viewport */
+    opacity: 0;
+  }
+}
+
