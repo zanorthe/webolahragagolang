@@ -1,34 +1,206 @@
-body {
-
+/* Define custom font */
+@font-face {
+  font-family: "CustomFont";
+  src: url("../Tambahan/") format("truetype");
+  font-weight: bolder;
+  font-style: normal;
 }
 
 body {
-    /* CSS lainnya */
-    transition: opacity 0.5s ease; /* Durasi transisi */
-    opacity: 1; /* Awalnya, opacity 1 (tidak transparan) */
+  font-family: "CustomFont", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
-body.fade-out {
-    opacity: 0; /* Saat fade-out, opacity menjadi 0 (transparan) */
+/* Style the scrollbar track */
+body::-webkit-scrollbar {
+  display: none;
 }
 
-body.fade-in {
-    opacity: 0; /* Saat halaman baru dimuat, opacity awalnya 0 */
+html {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
-/* Animasi fade-in saat halaman baru dimuat */
-body.fade-in-active {
-    opacity: 1; /* Ketika fade-in aktif, opacity menjadi 1 */
-    transition: opacity 0.5s ease; /* Durasi transisi yang sama */
+body {
+  -ms-overflow-style: none; /* Hide scrollbar for Edge and IE */
+}
+
+.container-fluid {
+      height: 100vh; /* Full viewport height */
+  scroll-snap-type: y mandatory;  /* Enable snapping for full-page scroll */
+}
+
+.row {
+      scroll-snap-align: start; /* Ensure each row snaps to the top */
+  height: 100vh; /* Each row takes full viewport height */
+}
+
+.sidebar {
+  background-color: #000000;
+  position:fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  right: 0;
+  padding: 0;
+  animation: dropDown 2s ease-out forwards; /* Apply animation to sidebar */
+    transition: transform 1.5s ease, opacity 1.5s ease; /* Ensure smooth transition */
+}
+
+/* Fall out effect when the sidebar is clicked */
+.sidebar.fall-out {
+  animation: fallOut 1.5s ease forwards; /* Trigger fall-out animation */
+}
+
+.headingsidebar {
+  writing-mode: vertical-rl; /* Vertical text from top to bottom */
+  text-orientation: upright; /* Keeps individual characters upright */
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the text vertically */
+  flex-grow: 1; /* Ensure the text takes full height inside the sidebar */
+  font-size: 5rem;
+  font-weight: bold;
+    margin: 0; /* Remove any extra margin */
+  padding: 0; /* Remove any extra padding */
+  text-decoration: none; /* Remove underline */
+  animation: dropDown 3s ease-out forwards; /* Apply animation to sidebar */
+}
+
+.content {
+    margin-right: 8.3vw; 
+    padding: 0;
+}
+
+/* Tambahkan animasi 'fall-out' untuk elemen konten */
+.content.fall-out {
+  animation: fallOut 1.5s ease forwards; /* Trigger 'fall-out' animation */
 }
 
 
 
 
-.textyourhealth {
-    text-shadow: 
-      2px 2px 0px black,  /* bayangan ke kanan bawah */
-     -2px 2px 0px black,  /* bayangan ke kiri bawah */
-      2px -2px 0px black, /* bayangan ke kanan atas */
-     -5px -5px 0px black; /* bayangan ke kiri atas */
+.headercontent1 h1{
+    font-weight: bold;
+    margin-top: 2rem;
+    font-size: 3rem;
+    margin-bottom: 100vh;
+    animation: dropDown 1.5s ease-out forwards; /* Apply animation to sidebar */
 }
+
+.headercontent2, .headercontent3 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;  
+}
+
+.headercontent2 h1, .headercontent3 h1 {
+    font-size: 3rem;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    
+}
+
+.headercontent2 p, .headercontent3 p {
+    font-size: 1.3rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    text-align: justify;
+}
+
+.headercontent4 h1 {
+        font-weight: bold;
+    font-size: 3rem;
+}
+
+.headercontent4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 3rem; /* Adjust as needed */
+    margin-bottom: 0 !important;
+}
+
+
+.carousel-makanan {
+    margin-right: 8.3vw;
+}
+.carousel-minuman {
+    margin-left: 8.3vw;
+}
+
+.carousel-latihan {
+  margin-right: 2rem;
+  margin-left: 2rem;
+    height: 80vh;
+  overflow: hidden;
+}
+
+.carousel-latihan-caption1{
+  margin-bottom: 10rem;
+}
+
+.carousel-latihan-caption2{
+  margin-bottom: 6rem;
+}
+
+.carousel-latihan-caption3{
+  margin-bottom: 10rem;
+}
+
+.carousel-latihan-caption4{
+  margin-bottom: 6rem;
+}
+
+
+
+.section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bagianlatihan {
+   display: flex; 
+   align-items: flex-start; /* Align items to the top */ 
+   justify-content: center;
+}
+
+
+
+/* Keyframes for drop down animation */
+@keyframes dropDown {
+  0% {
+    transform: translateY(-100vh); /* Start slightly above the viewport */
+    opacity: 0; /* Start fully transparent */
+  }
+  100% {
+    transform: translateY(0); /* Original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Keyframes for fall down animation */
+@keyframes fallOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh); /* Move down out of viewport */
+    opacity: 0;
+  }
+}
+
