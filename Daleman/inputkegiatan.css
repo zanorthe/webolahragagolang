@@ -1,85 +1,270 @@
-/*Fresh Css start here */
-body {
-    background-color: black;
-    margin: 0;
-    height: 100vh;
-    
+/* Define custom font */
+@font-face {
+  font-family: "CustomFont";
+  src: url("../Tambahan/") format("truetype");
+  font-weight: bolder;
+  font-style: normal;
 }
 
 body {
-    /* CSS lainnya */
-    transition: opacity 0.5s ease; /* Durasi transisi */
-    opacity: 1; /* Awalnya, opacity 1 (tidak transparan) */
+  font-family: "CustomFont", sans-serif;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
 }
 
-body.fade-out {
-    opacity: 0; /* Saat fade-out, opacity menjadi 0 (transparan) */
+/* Style the scrollbar track */
+body::-webkit-scrollbar {
+  display: none;
 }
 
-body.fade-in {
-    opacity: 0; /* Saat halaman baru dimuat, opacity awalnya 0 */
+html {
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
-/* Animasi fade-in saat halaman baru dimuat */
-body.fade-in-active {
-    opacity: 1; /* Ketika fade-in aktif, opacity menjadi 1 */
-    transition: opacity 0.5s ease; /* Durasi transisi yang sama */
+body {
+  -ms-overflow-style: none; /* Hide scrollbar for Edge and IE */
+}
+
+/* Navbar */
+.containerouter {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  padding: 0;
+  background-color: transparent !important;
+  box-shadow: none;
+  z-index: 2;
+  position: relative;
+  animation: slideDown 1s ease-out forwards; /* Ensure navbar slides down */
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  color: rgb(255, 255, 255) !important;
+  animation: fadeIn 1.5s ease-out; /* Fade-in effect for navbar text */
+}
+
+/* Video container and items */
+.video-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  animation: slideDown 1s ease-out forwards; /* Apply slideDown animation */
+}
+
+.video-item {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-item {
+    opacity: 0; /* Ensure each video starts hidden */
+    animation: slideDownFadeIn 1s ease forwards; /* Animation for smooth fade-in */
 }
 
 
+.video-item:nth-child(1) {
+    animation-delay: 0.2s; /* First video animates immediately */
+}
+
+.video-item:nth-child(2) {
+    animation-delay: 0.6s; /* Second video starts after 0.5 seconds */
+}
 
 
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-.jumbotron {
-    background-image: url('../images/bg/bg-image-2-1-darken.jpg'); 
-    background-size: cover; /* Memastikan gambar menutupi seluruh jumbotron */
-    background-position: center; /* Mengatur posisi gambar di tengah */
-    height: 50vh; /* Tinggi jumbotron 30% dari viewport height */
+/* Link text over video */
+.videotext {
+  position: absolute;
+  z-index: 2;
+  color: rgba(255, 255, 255);
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+    outline: none !important;
+  border: none !important;
+}
+
+.deskripsivideotext {
+  position: absolute;
+  z-index: 2;
+  color: rgba(255, 255, 255);
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+    outline: none !important;
+  border: none !important;
+}
+
+
+/* Css modal */
+.btn-diet:hover,
+.btn-diet:active,
+.btn-diet:focus,
+.btn-bentuktubuh:hover,
+.btn-bentuktubuh:active,
+.btn-bentuktubuh:focus{
+  color: rgba(255, 255, 255) !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* Memperbesar ukuran modal */
+.modalnya {
+    max-width: 40% !important; /* Sesuaikan persentasenya sesuai kebutuhan */
+    z-index: 1060 !important;
+}
+
+/* Mengecilkan dan memusatkan konten di dalam modal */
+.modal-header, .modal-body, .modal-footer {
+margin-left: 10%;
+margin-right: 10%;
+}
+
+.modal-header {
+  margin-top: 3rem;
+}
+
+.modal-footer {
+  margin-bottom: 3rem;
+}
+
+.modal-content, .tombolclose, .tombolcontinue {
+    border-radius: 0; 
+}
+
+.modal-header, .modal-footer {
+    border-bottom: none;
+    border-top: none;
+}
+
+.forminputdata, .forminputdata:focus {
+    border-radius: 0;
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: 1px solid #ccc; /* Hanya garis bawah yang terlihat */
+    outline: none; /* Menghilangkan outline saat input aktif */
+    box-shadow: none;
+}
+
+
+/* Menghilangkan tombol spinner pada input type number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Menghilangkan tombol di Chrome/Safari */
+    margin: 0; /* Menghapus margin */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Menghilangkan tombol di Firefox */
+}
+
+/* Pastikan seluruh modal, dialog, dan container gambar tidak memiliki border-radius */
+.modal-content, .modal-dialog, .modal .col-md-4 {
+    border-radius: 0 !important; /* Hilangkan semua border-radius */
+    overflow: hidden !important; /* Pastikan tidak ada elemen yang keluar dari container */
+}
+
+
+/* Style the form fields for a consistent width */
+.modal .forminputdata,
+.modal .form-select {
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-
-.textyourhealth {
-    text-shadow: 
-      2px 2px 0px black,  /* bayangan ke kanan bawah */
-     -2px 2px 0px black,  /* bayangan ke kiri bawah */
-      2px -2px 0px black, /* bayangan ke kanan atas */
-     -5px -5px 0px black; /* bayangan ke kiri atas */
+/* Style the modal buttons for consistent spacing */
+.modal-footer .btn {
+    width: 100vh; /* Makes the buttons take up equal space */
 }
 
-.containerheader {
-    margin-top: 7rem;
+/* Adjust the padding of the modal header and body */
+.modal-header, .modal-body, .modal-footer {
+    padding: 15px;
 }
 
+/* Make the modal wider */
+.modal-dialog {
+    max-width: 800px; /* Adjust this value as needed */
+    width: 90%; /* Optional: set to a percentage for responsive design */
+}
+/*====================================================================================================================================== */
 
-.card1, .card1 img, .card2, .card2 img, .btndiet{
-    border-radius: 0% !important;
-    outline: none;
-    border: none;
+
+/* Fade-in animation for navbar */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-.card2 img {
-    object-position: center 30%;
+/* Slide-down animation */
+@keyframes slideDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
 }
 
-.card-img-top {
-    object-fit: cover;
-    width: 100%;
-    height: 250px; /* Adjust the height to your preference */
+/* Slide-to-bottom animation */
+@keyframes slideToBottom {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(150vh); }
 }
 
-/* Custom larger horizontal gap */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 10rem; /* Adjust this value for a larger or smaller gap */
-}
-
-/* Reduce gap on smaller screens */
-@media (max-width: 576px) {
-    .card {
-        margin-left: 0.5rem; /* Smaller gap */
-        margin-right: 0.5rem; /* Smaller gap */
+@keyframes slideDownFadeIn {
+    0% {
+        transform: translateY(-50px); /* Start slightly above the viewport */
+        opacity: 0; /* Fully transparent */
+    }
+    100% {
+        transform: translateY(0); /* Original position */
+        opacity: 1; /* Fully visible */
     }
 }
+
+/* Apply the sliding animation to the body or page container when active */
+/* body.transition-active {
+    animation: slideToBottom 1.3s ease forwards; /* Extend duration to 1.5 seconds for a smooth roll down */
+} */
+
